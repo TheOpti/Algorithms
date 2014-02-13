@@ -6,6 +6,6 @@ package AbstractDataTypes;
  *
  * @author opti
  */
-public interface Queue {
+public interface IQueue {
     
 }
