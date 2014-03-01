@@ -66,7 +66,45 @@ public class Sorts {
      * Heap Sort
      */
     public <T extends Comparable> void heapSort(T[] array) {
+        for (int i = 1; i < array.length; i++) {
+            makeHeap(array, i);
+        }
 
+        for (int j = array.length - 1; j > 0; j--) {
+            swap(array, 0, j);
+            heapDown(array, j);
+        }
+
+    }
+
+    public <T extends Comparable> void makeHeap(T[] array, int i) {
+        int n = i;
+        int p = (n - 1) / 2;
+        while (n > 0) {
+            if (array[n].compareTo(array[p]) > 0) {
+                swap(array, i, p);
+            } else {
+                return;
+            }
+            i = p;
+            p = (i - 1 / 2);
+        }
+    }
+
+    public <T extends Comparable> void heapDown(T[] array, int n) {
+        int i = 0;
+        int c = 2*i+1;
+        while (c < n) {
+            if (c+1 < n && array[c+1].compareTo(array[c]) > 0)
+                c++;
+            if (array[i].compareTo(array[c]) > 0) {
+                swap(array, i, c);
+            } else {
+                return;
+            }
+            i = c;
+            c = 2*i + 1;
+        }
     }
 
     /*
@@ -99,6 +137,13 @@ public class Sorts {
         array[leftPtr] = array[right];
         array[right] = tmp;
         return leftPtr;
+    }
+
+    // swap elements in given array
+    public <T extends Comparable> void swap(T[] array, int i, int j) {
+        T tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
     }
 
 }

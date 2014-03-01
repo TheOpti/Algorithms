@@ -1,4 +1,4 @@
-package AbstractDataTypes;
+package abstract_data_types;
 
 /**
  *

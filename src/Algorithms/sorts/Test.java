@@ -17,6 +17,7 @@ public class Test {
 
         Integer[] b = tmp.clone();
         Integer[] c = tmp.clone();
+        Integer[] d = tmp.clone();
         double seconds;
 
         Sorts sorter = new Sorts();
@@ -39,6 +40,12 @@ public class Test {
         end = System.nanoTime();
         seconds = (double) (end - start) / 1000000000.0;
         System.out.println("Quick sort: " + seconds);
+        
+        start = System.nanoTime();
+        sorter.heapSort(d);
+        end = System.nanoTime();
+        seconds = (double) (end - start) / 1000000000.0;
+        System.out.println("Heap sort: " + seconds);
         
 
     }

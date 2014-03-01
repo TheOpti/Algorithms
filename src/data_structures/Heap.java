@@ -1,6 +1,6 @@
-package DataStructures;
+package data_structures;
 
-import AbstractDataTypes.*;
+import abstract_data_types.IPriorityQueue;
 
 /**
  *

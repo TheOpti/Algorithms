@@ -1,14 +1,12 @@
-package DataStructures;
+package data_structures;
 
-import AbstractDataTypes.*;
+import abstract_data_types.IStack;
 
 /**
  *
  * @author opti
  */
 public class Stack<T extends Comparable> implements IStack {
-
-    private
     
     
     @Override
