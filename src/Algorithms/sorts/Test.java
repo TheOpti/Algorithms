@@ -9,15 +9,16 @@ import java.util.Random;
 public class Test {
 
     public static void main(String[] args) {
-        Integer[] tmp = new Integer[10000];
+        Integer[] tmp = new Integer[100000];
         Random randomGenerator = new Random();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100000; i++) {
             tmp[i] = randomGenerator.nextInt(1000000);
         }
 
         Integer[] b = tmp.clone();
         Integer[] c = tmp.clone();
         Integer[] d = tmp.clone();
+        Integer[] e = tmp.clone();
         double seconds;
 
         Sorts sorter = new Sorts();
@@ -46,6 +47,12 @@ public class Test {
         end = System.nanoTime();
         seconds = (double) (end - start) / 1000000000.0;
         System.out.println("Heap sort: " + seconds);
+        
+        start = System.nanoTime();
+        sorter.chooseSort(e);
+        end = System.nanoTime();
+        seconds = (double) (end - start) / 1000000000.0;
+        System.out.println("Choose sort: " + seconds);
         
 
     }

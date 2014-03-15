@@ -7,8 +7,7 @@ import abstract_data_types.IStack;
  * @author opti
  */
 public class Stack<T extends Comparable> implements IStack {
-    
-    
+      
     @Override
     public void push(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

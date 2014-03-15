@@ -6,7 +6,7 @@ package Algorithms.sorts;
  */
 public class Sorts {
 
-    /*
+    /**
      * Bubble sort
      */
     public <T extends Comparable> void bubbleSort(T[] array) {
@@ -23,7 +23,7 @@ public class Sorts {
         }
     }
 
-    /*
+    /**
      * Insertion sort
      */
     public <T extends Comparable> void insort(T[] array) {
@@ -41,7 +41,7 @@ public class Sorts {
         }
     }
 
-    /*
+    /**
      *  Choose sort
      */
     public <T extends Comparable> void chooseSort(T[] array) {
@@ -62,7 +62,7 @@ public class Sorts {
         }
     }
 
-    /*
+    /**
      * Heap Sort
      */
     public <T extends Comparable> void heapSort(T[] array) {
@@ -107,7 +107,7 @@ public class Sorts {
         }
     }
 
-    /*
+    /**
      * Quick Sort
      */
     public <T extends Comparable> void qsort(T[] array, int start, int end) {
@@ -137,6 +137,13 @@ public class Sorts {
         array[leftPtr] = array[right];
         array[right] = tmp;
         return leftPtr;
+    }
+    
+    /**
+     * Counting sort
+    */
+    public <T extends Comparable> void countingSort(T[] array, Integer k) {
+        
     }
 
     // swap elements in given array
