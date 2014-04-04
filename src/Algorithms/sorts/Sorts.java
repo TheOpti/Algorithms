@@ -14,7 +14,7 @@ public class Sorts {
 
         for (int i = 0; i < length; i++) {
             for (int x = 1; x < length - i; x++) {
-                if (array[x - 1].compareTo(array[x]) > 1) {
+                if (array[x - 1].compareTo(array[x]) > 0) {
                     T tmp = array[x - 1];
                     array[x - 1] = array[x];
                     array[x] = tmp;
@@ -74,44 +74,66 @@ public class Sorts {
             swap(array, 0, j);
             heapDown(array, j);
         }
-
     }
 
-    public <T extends Comparable> void makeHeap(T[] array, int i) {
-        int n = i;
-        int p = (n - 1) / 2;
-        while (n > 0) {
-            if (array[n].compareTo(array[p]) > 0) {
-                swap(array, i, p);
+    public <T extends Comparable<T>> void makeHeap(T[] array, int i) {
+        int child = i;
+        int parent = (child - 1) / 2;
+        while (child >= 0) {
+            if (array[child].compareTo(array[parent]) > 0 ) {
+                swap(array, child, parent);
             } else {
                 return;
             }
-            i = p;
-            p = (i - 1 / 2);
+            child = parent;
+            parent = (child - 1 ) / 2;
+            
         }
     }
 
-    public <T extends Comparable> void heapDown(T[] array, int n) {
+    public <T extends Comparable<T>> void heapDown(T[] array, int n) {
         int i = 0;
-        int c = 2 * i + 1;
-        while (c < n) {
-            if (c + 1 < n && array[c + 1].compareTo(array[c]) > 0) {
-                c++;
+        int child = i*2 + 1;
+        while (child < n) {
+            if (child + 1 < n && array[child + 1].compareTo(array[child]) > 0) {
+                child++;
             }
-            if (array[i].compareTo(array[c]) > 0) {
-                swap(array, i, c);
+            if (array[child].compareTo(array[i]) > 0) {
+                swap(array, i, child);
             } else {
                 return;
             }
-            i = c;
-            c = 2 * i + 1;
+            i = child;
+            child = 2*i + 1;
+            
         }
     }
+    
+    /*
+        this.heap[0] = this.heap[size];
+        this.heap[size] = null;
+        this.size--;
+        int i = index;
+        int child = 2 * i + 1;
+        while (child < this.size) {
+            
+            if (child < size && (((T) heap[child + 1]).compareTo((T) heap[child]) > 0)) {
+                child++;
+            }
+            if (((T) heap[child]).compareTo((T) heap[i]) > 0) {
+                swap(child, i);
+            } else {
+                break;
+            }
+            i = child;
+            child = 2 * i + 1;
+        }
+    */
 
     /**
      * Quick Sort
      */
-    public <T extends Comparable> void qsort(T[] array, int start, int end) {
+    public <T extends Comparable<T>> void qsort(T[] array, int start, int end) {
         if (end - start > 0) {
             T pivot = array[end];
             Integer partition = partitionArray(array, start, end, pivot);
@@ -168,7 +190,7 @@ public class Sorts {
             }
             k++;
         }
-        
+
         while (i <= middle) {
             array[k] = helper[i];
             k++;
@@ -182,6 +204,14 @@ public class Sorts {
         T tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
+    }
+
+    public <T extends Comparable> void testArray(T[] array) throws Exception {
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i].compareTo(array[i + 1]) > 0) {
+                throw new Exception("This array is not sorted!");
+            }
+        }
     }
 
 }

@@ -37,7 +37,7 @@ public class Heap<T extends Comparable> implements IPriorityQueue<T> {
             } else {
                 break;
             }
-            idx = idx / 2;
+            idx = (idx - 1) / 2;
         }
     }
 
