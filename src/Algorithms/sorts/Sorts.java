@@ -109,27 +109,7 @@ public class Sorts {
         }
     }
     
-    /*
-        this.heap[0] = this.heap[size];
-        this.heap[size] = null;
-        this.size--;
-        int i = index;
-        int child = 2 * i + 1;
-        while (child < this.size) {
-            
-            if (child < size && (((T) heap[child + 1]).compareTo((T) heap[child]) > 0)) {
-                child++;
-            }
-            if (((T) heap[child]).compareTo((T) heap[i]) > 0) {
-                swap(child, i);
-            } else {
-                break;
-            }
-            i = child;
-            child = 2 * i + 1;
-        }
-    */
-
+    
     /**
      * Quick Sort
      */
