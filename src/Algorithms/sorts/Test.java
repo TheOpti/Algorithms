@@ -19,6 +19,7 @@ public class Test {
         Integer[] c = tmp.clone();
         Integer[] d = tmp.clone();
         Integer[] e = tmp.clone();
+        Integer[] f = tmp.clone();
         double seconds;
 
         Sorts sorter = new Sorts();
@@ -53,6 +54,12 @@ public class Test {
         end = System.nanoTime();
         seconds = (double) (end - start) / 1000000000.0;
         System.out.println("Choose sort: " + seconds);
+        
+        start = System.nanoTime();
+        sorter.mergeSort(f, 0, f.length - 1);
+        end = System.nanoTime();
+        seconds = (double) (end - start) / 1000000000.0;
+        System.out.println("Merge sort: " + seconds);
         
 
     }

@@ -42,7 +42,7 @@ public class Sorts {
     }
 
     /**
-     *  Choose sort
+     * Choose sort
      */
     public <T extends Comparable> void chooseSort(T[] array) {
         int length = array.length;
@@ -93,17 +93,18 @@ public class Sorts {
 
     public <T extends Comparable> void heapDown(T[] array, int n) {
         int i = 0;
-        int c = 2*i+1;
+        int c = 2 * i + 1;
         while (c < n) {
-            if (c+1 < n && array[c+1].compareTo(array[c]) > 0)
+            if (c + 1 < n && array[c + 1].compareTo(array[c]) > 0) {
                 c++;
+            }
             if (array[i].compareTo(array[c]) > 0) {
                 swap(array, i, c);
             } else {
                 return;
             }
             i = c;
-            c = 2*i + 1;
+            c = 2 * i + 1;
         }
     }
 
@@ -138,12 +139,42 @@ public class Sorts {
         array[right] = tmp;
         return leftPtr;
     }
-    
+
     /**
-     * Counting sort
-    */
-    public <T extends Comparable> void countingSort(T[] array, Integer k) {
+     * Merge sort
+     */
+    public <T extends Comparable> void mergeSort(T[] array, Integer left, Integer right) {
+        if (right > left) {
+            Integer middle = (right + left) / 2;
+            mergeSort(array, left, middle);
+            mergeSort(array, middle + 1, right);
+            merge(array, left, middle, right);
+        }
+    }
+
+    public <T extends Comparable> void merge(T[] array, Integer left, Integer middle, Integer right) {
+        T[] helper = array.clone();
+        int i, j, k;
+        i = k = left;
+        j = middle + 1;
+
+        while (i <= middle && j <= right) {
+            if (helper[i].compareTo(helper[j]) < 0) {
+                array[k] = helper[i];
+                i++;
+            } else {
+                array[k] = helper[j];
+                j++;
+            }
+            k++;
+        }
         
+        while (i <= middle) {
+            array[k] = helper[i];
+            k++;
+            i++;
+        }
+
     }
 
     // swap elements in given array
