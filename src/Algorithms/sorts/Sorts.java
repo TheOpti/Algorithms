@@ -9,7 +9,7 @@ public class Sorts {
     /**
      * Bubble sort
      */
-    public <T extends Comparable> void bubbleSort(T[] array) {
+    public <T extends Comparable<T>> void bubbleSort(T[] array) {
         int length = array.length;
 
         for (int i = 0; i < length; i++) {

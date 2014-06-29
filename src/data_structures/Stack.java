@@ -1,26 +1,41 @@
 package data_structures;
 
 import abstract_data_types.IStack;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author opti
  */
 public class Stack<T extends Comparable> implements IStack {
-      
+
+    private List<T> stack;
+    private Integer size;
+
+    public Stack() {
+        this.size = 0;
+        this.stack = new ArrayList<>();
+    }
+
     @Override
     public void push(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.size++;
+        this.stack.add((T) o);
     }
 
     @Override
     public Object pop() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.stack.remove(size);
     }
 
     @Override
     public Object peek() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.stack.get(size);
+    }
+
+    public Integer getSize() {
+        return this.size;
     }
 
 }
